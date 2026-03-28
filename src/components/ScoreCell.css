@@ -1,0 +1,30 @@
+.score-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.score-value {
+  font-weight: 600;
+  min-width: 28px;
+  text-align: right;
+}
+
+.score-cell--sm .score-value { font-size: 13px; }
+.score-cell--md .score-value { font-size: 14px; }
+.score-cell--lg .score-value { font-size: 18px; }
+
+.score-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+  min-width: 40px;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width var(--transition-base);
+}
