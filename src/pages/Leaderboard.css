@@ -54,11 +54,17 @@
   border-radius: var(--radius-md);
   outline: none;
   cursor: pointer;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.filter-select:focus {
+.filter-select:hover {
+  border-color: var(--text-tertiary);
+}
+
+.filter-select:focus,
+.filter-select:focus-visible {
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
 }
 
 .results-count {
@@ -72,6 +78,7 @@
   border-radius: var(--radius-lg);
   overflow-x: auto;
   background: var(--bg-card);
+  box-shadow: var(--shadow-card);
 }
 
 .leaderboard-table {
@@ -121,6 +128,7 @@
   padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--border-primary);
   font-size: 14px;
+  transition: background var(--transition-fast);
 }
 
 .leaderboard-table tr:last-child td {

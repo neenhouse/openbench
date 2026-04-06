@@ -25,7 +25,8 @@ export function ScoreCell({ value, showBar = true, size = 'md' }: ScoreCellProps
         <div className="score-bar">
           <div
             className="score-bar-fill"
-            style={{ width: `${value}%`, background: color }}
+            data-excellent={value >= 90 ? 'true' : undefined}
+            style={{ width: `${value}%`, background: color, color }}
           />
         </div>
       )}

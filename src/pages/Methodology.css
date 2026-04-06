@@ -43,6 +43,13 @@
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.principle-card:hover {
+  border-color: var(--border-secondary);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .principle-card h3 {
@@ -163,6 +170,13 @@
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-5) var(--space-6);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.faq-item:hover {
+  border-color: var(--border-secondary);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .faq-item h3 {

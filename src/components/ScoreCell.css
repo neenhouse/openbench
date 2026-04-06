@@ -5,9 +5,10 @@
 }
 
 .score-value {
-  font-weight: 600;
+  font-weight: 700;
   min-width: 28px;
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .score-cell--sm .score-value { font-size: 13px; }
@@ -16,15 +17,21 @@
 
 .score-bar {
   flex: 1;
-  height: 4px;
-  background: var(--bg-tertiary);
-  border-radius: 2px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
   overflow: hidden;
   min-width: 40px;
 }
 
 .score-bar-fill {
   height: 100%;
-  border-radius: 2px;
-  transition: width var(--transition-base);
+  border-radius: 3px;
+  transition: width var(--transition-slow);
+  position: relative;
+}
+
+/* Glow on top-tier scores */
+.score-bar-fill[data-excellent="true"] {
+  box-shadow: 0 0 6px currentColor;
 }

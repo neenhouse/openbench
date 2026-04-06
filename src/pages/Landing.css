@@ -15,12 +15,12 @@
 
 .hero-glow {
   position: absolute;
-  top: -120px;
+  top: -80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse at 50% 30%, rgba(6, 182, 212, 0.12) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 70%);
   pointer-events: none;
 }
 
@@ -52,8 +52,8 @@
 .hero-title {
   font-size: 56px;
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -1.5px;
+  line-height: 1.05;
+  letter-spacing: -2px;
   margin-bottom: var(--space-6);
   color: var(--text-primary);
 }
@@ -94,8 +94,9 @@
   border-radius: var(--radius-md);
   font-size: 15px;
   font-weight: 600;
-  transition: all var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
+  will-change: transform;
 }
 
 .btn-primary {
@@ -105,18 +106,31 @@
 
 .btn-primary:hover {
   background: var(--accent-bright);
-  box-shadow: 0 0 20px var(--accent-glow);
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.35), 0 0 0 1px rgba(6, 182, 212, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
 }
 
 .btn-secondary {
   background: var(--bg-tertiary);
   color: var(--text-primary);
   border: 1px solid var(--border-secondary);
+  box-shadow: var(--shadow-card);
 }
 
 .btn-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .link-btn {
@@ -161,6 +175,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--bg-card);
+  box-shadow: var(--shadow-card);
 }
 
 .preview-table {
@@ -183,6 +198,7 @@
 .preview-table td {
   padding: var(--space-3) var(--space-4);
   border-bottom: 1px solid var(--border-primary);
+  transition: background var(--transition-fast);
 }
 
 .preview-table tr:last-child td {
@@ -191,6 +207,11 @@
 
 .preview-table tr:hover td {
   background: var(--bg-card-hover);
+}
+
+/* Rank #1 row — subtle accent accent on leftmost cell */
+.preview-table tbody tr:first-child td:first-child {
+  border-left: 2px solid var(--accent);
 }
 
 .col-rank {
@@ -238,11 +259,14 @@
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  transition: border-color var(--transition-base);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 }
 
 .method-card:hover {
   border-color: var(--accent);
+  box-shadow: var(--shadow-card-hover), 0 0 0 1px rgba(6, 182, 212, 0.15);
+  transform: translateY(-2px);
 }
 
 .method-number {
@@ -283,6 +307,13 @@
   background: var(--bg-card);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
 }
 
 .stat-value {
@@ -290,12 +321,17 @@
   font-weight: 700;
   color: var(--accent);
   margin-bottom: var(--space-2);
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 
 .stat-label {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-secondary);
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* CTA */
@@ -306,9 +342,20 @@
 .cta-card {
   text-align: center;
   padding: var(--space-12);
-  background: linear-gradient(135deg, var(--accent-glow) 0%, var(--accent-warm-glow) 100%);
-  border: 1px solid var(--border-secondary);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(249, 115, 22, 0.06) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.2);
   border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -20%, rgba(6, 182, 212, 0.1) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .cta-card h2 {
