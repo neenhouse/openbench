@@ -19,6 +19,7 @@ function App() {
 
   return (
     <div className="app">
+      <a href="#main" className="skip-link">Skip to main content</a>
       <header className="header">
         <div className="header-logo" onClick={() => navigate('home')}>
           <svg viewBox="0 0 32 32" fill="none">
@@ -45,7 +46,7 @@ function App() {
         </nav>
       </header>
 
-      <main className="main-content">
+      <main id="main" className="main-content">
         {page === 'home' && <Landing onNavigate={navigate} />}
         {page === 'leaderboard' && <Leaderboard />}
         {page === 'compare' && <Compare />}
